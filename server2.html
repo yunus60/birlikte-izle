@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Socket.IO chat</title>
+  <style>
+    video {
+      width: 100%;
+      height: 100%;
+    }
+
+    .caption {
+      vertical-align: middle;
+      text-align: center;
+      font-size: 4vh;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-weight: bold;
+      width: auto;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      z-index: 9;
+    }
+
+    html,
+    body {
+      overflow: hidden;
+      background-color: #F3F3F3;
+      margin: 0;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    #wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+      text-align: center;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    #main {
+      width: 80vw;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .show {
+      opacity: 1;
+    }
+
+    .dim {
+      background-color: #030303;
+    }
+
+    #main.grow {
+      width: 90vw;
+      height: 90vh;
+    }
+
+    #info {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 100px;
+      height: 100px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    @media screen and (max-height:100px) {
+      .caption {
+        display: none;
+      }
+    }
+  </style>
+  <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
+</head>
+<body>
+  <div id="wrap">
+    <div id="main">
+      
+      <video
+          id="my-player"
+          class="video-js"
+          controls
+          preload="auto"
+          muted="true"
+          autoplay="true"
+          poster="//vjs.zencdn.net/v/oceans.png"
+          data-setup='{}'>
+        <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4"></source>
+        <p class="vjs-no-js">
+          To view this video please enable JavaScript, and consider upgrading to a
+          web browser that
+          <a href="https://videojs.com/html5-video-support/" target="_blank">
+            supports HTML5 video
+          </a>
+        </p>
+      </video>
+    </div>
+  </div>
+  <div id="info">
+    <span id="mos"></span><br />
+    <span id="clients"></span><br />
+    <span id="lat"></span>
+  </div>
+
+  <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+
+    var socketing = false;
+
+    const socket = io({
+      auth: {
+        serverOffset: 0
+      },
+    });
+
+    var options = {};
+
+    var player = videojs('my-player', options, function onPlayerReady() {
+      videojs.log('Your player is ready!');
+
+      // In this context, `this` is the player that was created by Video.js.
+      this.play();
+
+      // How about an event listener?
+      this.on('ended', function() {
+        videojs.log('Awww...over so soon?!');
+      });
+    });
+
+    player.on("seeked", function (e) {
+      if(socketing == false) {
+        console.log(player.currentTime());
+        socket.emit("seeked", player.currentTime());
+      }else {
+        socket.emit("seeked", player.currentTime());
+      }
+    });
+
+    player.on("play", function () {
+      console.log("play");
+      socket.emit("play", "play");
+    });
+
+    player.on("pause", function () {
+      console.log("pause");
+      socket.emit("pause", "pause");
+    });
+
+    socket.on('play', function () {
+      console.log("socket.play");
+      player.play();
+    });
+
+    socket.on('pause', function () {
+      console.log("socket.pause");
+      player.pause();
+    });
+
+    socket.on('seeked', function (seek) {
+      if (socketing == false) {
+        console.log("socket.seeked", seek);
+        player.currentTime(seek);
+      }
+      
+    });
+
+
+    let counter = 0;
+
+    /*
+    var latency = 0;
+
+    var $ = function (e) { return document.getElementById(e); }
+
+    
+    var vid = $("vid");
+    $("mos").innerHTML = "Master: false";
+
+    vid.onplay = function () {
+      console.log("play");
+      socket.emit("play", "play");
+    }
+
+    vid.onpause =  function () {
+      console.log("pause");
+      socket.emit("pause", "pause");
+    }
+
+    
+
+    socket.on('play', function () {
+      console.log("socket.play");
+      vid.play();
+    });
+
+    socket.on('pause', function () {
+      console.log("socket.pause");
+      vid.pause();
+    });
+
+    socket.on('changePosition', function (pos) {
+      console.log("socket.position", pos);
+      vid.currentTime = pos;
+    });
+
+    function sync() {
+      socket.emit("pos", vid.currentTime);
+      console.log("vid.currentTime", vid.currentTime);
+      setTimeout(sync, 100);
+    }
+    
+
+
+
+    socket.on('chat message', (msg, serverOffset) => {
+      const item = document.createElement('li');
+      item.textContent = msg;
+      messages.appendChild(item);
+      window.scrollTo(0, document.body.scrollHeight);
+      socket.auth.serverOffset = serverOffset;
+    }); */
+  </script>
+</body>
+</html>

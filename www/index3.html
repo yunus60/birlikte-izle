@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Birlikte İzleyelim mi?</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #141414;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        #player {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="player"></div>
+
+    <script src='https://content.jwplatform.com/libraries/KB5zFt7A.js'></script>
+    <script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';</script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var player = jwplayer("player");
+        player.setup({
+            file: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            image: "https://tr.web.img3.acsta.net/newsv7/21/06/01/00/43/4844878.jpg",
+            width: 640,
+            height: 360
+        });
+
+        var syntheticEvent = false;
+        var roomCode = 125;
+
+        const socket = io();
+
+        const checkVideoEvent = (event) => {
+            // if event comes from javascript code, stop videoEventHandler listener from firing
+            var source = event.type;
+            console.log(source);
+
+            if (syntheticEvent) {
+
+                if (source != "seeked") {
+                    syntheticEvent = false
+                }
+                
+            }else{
+                socket.emit(
+                    SOCKET_EVENTS.VIDEO_EVENT,
+                    event.type,
+                    player?.getCurrentTime()
+                )
+            }
+
+        }
+
+        const videoEventHandler = (event) => {
+            if (roomCode) {
+                socket.emit(
+                    SOCKET_EVENTS.VIDEO_EVENT,
+                    event.type,
+                    player?.getCurrentTime()
+                )
+            }
+        }
+
+        const VIDEO_EVENTS = {
+            PLAY: "play",
+            PAUSE: "pause",
+            SEEKED: "seeked"
+        };
+
+        const SOCKET_EVENTS = {
+            CREATE: "create",
+            JOIN: "join",
+            FULL: "full",
+            LOG: "log",
+            VIDEO_EVENT: "videoEvent"
+        }
+
+        Object.values(VIDEO_EVENTS).forEach((event) => player.on(event, checkVideoEvent))
+        //Object.values(VIDEO_EVENTS).forEach((event) => player.on(event, videoEventHandler))
+
+        socket.on(
+            SOCKET_EVENTS.VIDEO_EVENT,
+            (eventType, currentTime) => {
+                switch (eventType) {
+                    case VIDEO_EVENTS.PLAY:
+                        syntheticEvent = true
+                        player?.play()
+                        break
+                    case VIDEO_EVENTS.PAUSE:
+                        syntheticEvent = true
+                        player?.pause()
+                        break
+                    case VIDEO_EVENTS.SEEKED: {
+                        syntheticEvent = true
+                        player?.seek(currentTime)
+                        break
+                    }
+                }
+
+            }
+        )
+
+    </script>
+
+</body>
+
+</html>

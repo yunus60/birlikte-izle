@@ -1,0 +1,938 @@
+<html lang="en">
+
+<head>
+    <title>Birlikte izleyelim mi?</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!--Begin: Stylesheet-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/css/style.css">
+    <!--End: Stylesheet-->
+
+</head>
+
+<body class="livestream_body livestream_body-watch">
+    <div id="sidebar_menu_bg"></div>
+    <div id="sidebar_menu">
+        <button class="btn btn-radius btn-sm btn-secondary toggle-sidebar"><i class="fas fa-angle-left mr-2"></i>Close
+            menu</button>
+        <div class="sb-setting">
+            <div class="header-setting">
+                <div class="hs-toggles">
+                    <a href="/watch2gether" class="hst-item" data-toggle="tooltip" title=""
+                        data-original-title="Watch with friends">
+                        <div class="hst-icon"><i class="zicon zicon-20 zicon-live"></i></div>
+                        <div class="name"><span>Watch2gether</span></div>
+                    </a>
+                    <a href="/random" class="hst-item" data-toggle="tooltip" data-original-title="Watch random anime">
+                        <div class="hst-icon"><i class="fas fa-random"></i></div>
+                        <div class="name"><span>Random</span></div>
+                    </a>
+                    <div class="hst-item mr-0" data-toggle="tooltip" title=""
+                        data-original-title="Select language of anime name to display.">
+                        <div class="select-anime-name toggle-lang"><span class="en">EN</span><span class="jp">JP</span>
+                        </div>
+                        <div class="name"><span>Anime Name</span></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sb-donate">
+            <div class="hr-community"><a class="btn btn-sm" href="/community/board" title="AniWatch Connect"><i
+                        class="fas fa-comments mr-2"></i>Community</a></div>
+        </div>
+        <ul class="nav sidebar_menu-list">
+            <li class="nav-item active"><a class="nav-link" href="/home" title="Home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/subbed-anime" title="Subbed Anime">Subbed Anime</a></li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div id="wrapper">
+        <div id="header" class="header-home">
+            <div class="container">
+                <div id="mobile_menu"><i class="fa fa-bars"></i></div>
+                <a href="/" id="logo">
+                    <div class="uc-info"><strong>Birlikte izleyelim mi?</strong>
+                    </div>
+                </a>
+                <div id="search">
+                    <div class="search-content">
+                        <form action="/search" autocomplete="off">
+                            <a href="/filter" class="filter-icon">Filtrele</a>
+                            <input type="text" class="form-control search-input" name="keyword"
+                                placeholder="Dizi ya da Film ara..." required="">
+                            <button type="submit" class="search-icon"><i class="fas fa-search"></i></button>
+                        </form>
+                        <div class="nav search-result-pop" id="search-suggest" style="display: none;">
+                            <div class="loading-relative" id="search-loading" style="display: none;">
+                                <div class="loading">
+                                    <div class="span1"></div>
+                                    <div class="span2"></div>
+                                    <div class="span3"></div>
+                                </div>
+                            </div>
+                            <div class="result" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="header_right">
+                    <div class="header_right-user">
+                        <a data-toggle="modal" data-target="#modallogin"
+                            class="btn-user btn btn-sm btn-primary btn-login">Giriş Yap</a>
+                    </div>
+                </div>
+                <div id="mobile_search"><i class="fa fa-search"></i></div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <!--Begin: Main-->
+        <div id="main-wrapper" class="layout-page layout-page-live-watch">
+            <div class="livestream_page-watch">
+                <div class="ls__-wrap">
+                    <div id="room-detail">
+                        <div class="zcontainer">
+                            <div class="rd-room-name">
+                                <i class="zicon zicon-20 zicon-live"></i>
+                                <span>Doctor Who birlikte izle</span>
+                            </div>
+                            <div class="rd-anime">
+                                <strong>Doctor Who</strong>
+                                <div class="dot"></div>
+                                <div class="tick">
+
+                                    <div class="tick-item tick-sub"><i class="fas fa-closed-captioning mr-1"></i>SUB
+                                    </div>
+
+                                </div>
+                                <div class="dot"></div>
+                                <span>Bölüm <span id="episode-number">4</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="player-wrapper">
+                        <div id="player-container">
+                            <div id="player"></div>
+                        </div>
+                    </div>
+                    <div class="ls___-detail">
+                        <div class="zcontainer">
+                            <div class="live-owner">
+                                <div class="user-avatar"><img class="user-avatar-img"
+                                        src="https://img.flawlessfiles.com/_r/100x100/100/avatar/one_piece/user-03.jpeg">
+                                </div>
+                                <div class="user-created">
+                                    <div class="uc-name">Yunus Konyar</div>
+                                    <div class="uc-info">
+                                        <div class="status owner-status is-off" style="">Offline</div>
+                                        <div class="time">- 5 dakika önce oluşturuldu</div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="live-stats">
+                                <div class="item item-online mr-3"><i class="fas fa-eye mr-2"></i><span
+                                        id="totalViewers">1</span>
+                                </div>
+                                <div class="item item-time"><i class="fas fa-clock mr-2"></i><span id="passedTime">11 :
+                                        54</span>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div id="open-comment" class="text-center">
+                        <div class="btn btn-sm btn-light"><i class="fas fa-comment mr-2"></i>Chat'i aç</div>
+                    </div>
+                    <div class="ls___-chatbox">
+                        <div class="chatbox_wrap">
+                            <div id="top_chat">
+                                <div class="t_c-close"><a class="btn btn-sm" id="toggle-chatbox"><i
+                                            class="fas fa-minus-circle mr-2"></i><strong>chatbox</strong></a></div>
+                                <div class="t_c-chatlist ps">
+                                    <div class="loading-relative" id="loading-data" style="display: none;">
+                                        <div class="loading">
+                                            <div class="span1"></div>
+                                            <div class="span2"></div>
+                                            <div class="span3"></div>
+                                        </div>
+                                    </div>
+                                    <div class="is-wrap" id="chat-content"></div>
+                                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                                    </div>
+                                    <div class="ps__rail-y" style="top: 0px; height: 272px; right: 0px;">
+                                        <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+                                    </div>
+                                </div>
+                                <div class="t_c-noti">
+                                    <div class="new-chat" style="display: none" id="chat-scrollBottom"><i
+                                            class="fas fa-chevron-down mr-2"></i>Önceki mesajlar
+                                    </div>
+                                    <div class="is-reply" style="display: none" id="replyContent">
+                                        <div class="is-icon"><i class="fas fa-reply"></i></div>
+                                        <div class="is-content">
+                                            <div class="is-name"></div>
+                                            <div class="text"></div>
+                                        </div>
+                                        <div class="is-cancel"><i class="fas fa-times"></i></div>
+                                    </div>
+                                    <div class="user-limit" style="display: none;"><i class="fas fa-ban mr-2"></i><span
+                                            id="chatError"></span></div>
+                                </div>
+                                <div class="t_c-input">
+                                    <div class="is-textarea">
+                                        <div class="is-emo">
+                                            <div data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                                id="dropdownEmo" class="cb-icon"><i class="fas fa-laugh"></i></div>
+                                            <div
+                                                class="dropdown-menu dropdown-menu-model dropdown-menu-normal dr-bottom-left dropdown-menu-emo w-sticker">
+                                                <div class="emo-tabs">
+                                                    <ul class="nav nav-tabs nav-tabs-simple">
+                                                        <li class="nav-item"><a data-toggle="tab" href="#tab-emo"
+                                                                class="nav-link active">Emotion</a></li>
+                                                        <li class="nav-item"><a data-toggle="tab" href="#tab-sticker"
+                                                                class="nav-link">GIFS</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="tab-content">
+                                                    <div id="tab-emo" class="tab-pane active show">
+                                                        <emoji-picker class="light"
+                                                            style="width: 100%; max-height: 320px;"></emoji-picker>
+                                                    </div>
+                                                    <div id="tab-sticker" class="tab-pane">
+                                                        <div class="sticker-search">
+                                                            <div class="ss-icon"><i class="fas fa-search"></i></div>
+                                                            <input type="text" class="form-control" id="searchStickers"
+                                                                placeholder="Search GIFs">
+                                                        </div>
+                                                        <div class="sticker-list">
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media2.giphy.com/media/gI5zI2UAgt9iFRwfOU/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media4.giphy.com/media/vVzH2XY3Y0Ar6/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media0.giphy.com/media/yE66YWduX3cjm8e7RF/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media3.giphy.com/media/zzSWAAAKSSbVm/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media1.giphy.com/media/ZcnwOpPTw9Ucw/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media3.giphy.com/media/3o7WTPbk99chGVhZoQ/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media4.giphy.com/media/xTiTnqUxyWbsAXq7Ju/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media0.giphy.com/media/M90mJvfWfd5mbUuULX/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media4.giphy.com/media/tsX3YMWYzDPjAARfeg/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media4.giphy.com/media/fCCCy9QuTtsFM9S88n/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media3.giphy.com/media/wneBwHCNJasfEiXQqT/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media3.giphy.com/media/sjVsQih0n1NPQkLQaG/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media0.giphy.com/media/FVTeMpEI2h3o88E8cQ/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media3.giphy.com/media/33zX3zllJBGY8/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media3.giphy.com/media/3owzW9t7Fgt7JiFHfW/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media0.giphy.com/media/tXL4FHPSnVJ0A/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media1.giphy.com/media/CmtjqNjaoCGsIo7wfZ/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media3.giphy.com/media/3o6gDWzmAzrpi5DQU8/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media1.giphy.com/media/jpImPBfUf5EVAKyKvn/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media4.giphy.com/media/l0IybQ6l8nfKjxQv6/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media1.giphy.com/media/4QppHA8eI7LeX15eHD/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media2.giphy.com/media/cCuBNLbZqclxkpWyby/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media1.giphy.com/media/BNMSc4LNV0CaMFsWD6/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media4.giphy.com/media/n8x2aZCaCXAQEW6MKR/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media1.giphy.com/media/3ohs4dVGRplC8bZLeo/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media4.giphy.com/media/hFmIU5GQF18Aw/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media0.giphy.com/media/W0E1LvPwj2aoQVKNlu/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media2.giphy.com/media/MFsqcBSoOKPbjtmvWz/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media2.giphy.com/media/3o7TKoWXm3okO1kgHC/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media0.giphy.com/media/5K7ngCtszoxxbaBieC/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media3.giphy.com/media/NUGx13UrsemI9aNe0M/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media1.giphy.com/media/HaKUumB8C4glU4ft1A/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media4.giphy.com/media/bCG3WIbPPzdHnsRkyv/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media4.giphy.com/media/GbkhnCMmYnyyg0421R/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media0.giphy.com/media/14uXQbPS73Y3qU/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media4.giphy.com/media/iMQ2kjkP8chaj02EjB/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media3.giphy.com/media/PCvkgunX9ZbEEyfTQH/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media2.giphy.com/media/ND6xkVPaj8tHO/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media0.giphy.com/media/l0K4kWJir91VEoa1W/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media4.giphy.com/media/3oEduOnl5IHM5NRodO/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media0.giphy.com/media/xUNd9GIay1fKQTSWIM/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media2.giphy.com/media/R6nTdDGPiaKuZhlYbV/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media0.giphy.com/media/uNUjbGu5Qae0Ods0yh/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media3.giphy.com/media/MZu0LixpPL6l2lmJvo/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media1.giphy.com/media/YUG6QfNKphYLIMfLmx/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media2.giphy.com/media/H9510eCzlAkdW/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media3.giphy.com/media/ZXKZWB13D6gFO/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                            <div class="sl-item">
+                                                                <div class="sli-img"><img
+                                                                        src="https://media2.giphy.com/media/lptjRBxFKCJmFoibP3/100w.webp?cid=0ab78b99mfcx3o19fxz72pku4cc5lyc3662or8r77cv7nm0u&amp;ep=v1_gifs_trending&amp;rid=100w.webp&amp;ct=g">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input class="form-control form-control-textarea" placeholder="Mesaj gönder..."
+                                            maxlength="200" id="message">
+                                        <div class="characters-left"><span id="messageLength">0</span>/200</div>
+                                        <div id="slowModeMessage" class="time-left" style="display: none;"><i
+                                                class="fas fa-clock mr-2"></i>Lütfen bekle <strong
+                                                id="countTimer"></strong>
+                                            to send next message
+                                        </div>
+                                    </div>
+                                    <div class="is-button">
+                                        <button class="btn btn-primary" id="sendMessage">Gönder</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!--End: Main-->
+    </div>
+    
+
+    <script id="messageTmpl" type="text/x-jsrender" data-jsv-tmpl="#messageTmpl">
+    <div class="item" data-id="{{:id}}">
+        <div class="user-avatar">
+            <img class="user-avatar-img" src="{{:sender.avatar.path}}" alt="{{:sender.name}}">
+        </div>
+        <div class="detail">
+            <div class="is-info">
+                <div class="is-name">
+                    {{:sender.name}}
+                </div>
+                <div class="is-reply"><a href="javascript:;" data-id="{{:id}}">@reply</a></div>
+                <div class="is-time" data-time="{{:time}}"></div>
+            </div>
+            <div class="is-subject">
+                {{if reply}}
+                    <div class="reply">
+                        <div class="r-name">{{:reply.sender.name}}</div>
+                        <div class="r-subject">{{:reply.message}}</div>
+                    </div>
+                {{/if}}
+                <p>{{:message}}</p>
+            </div>
+            <div class="options dropup">
+                <a onclick="renderActions('{{:id}}',{{:sender.roles}},{{:sender.id}})" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-xs"><i class="fas fa-ellipsis-v"></i></a>
+                <div id="actions-{{:id}}" class="dropdown-menu dropdown-menu-model dropdown-menu-right"></div>
+            </div>
+        </div>
+    </div>
+
+</script>
+    <script id="actionTmpl" type="text/x-jsrender" data-jsv-tmpl="#actionTmpl">
+    <a class="dropdown-item replyMessage" href="javascript:;" data-id="{{:id}}"><i class="fas fa-reply mr-2"></i>Reply</a>
+    {{if loggedInfo.roles > 0 || loggedInfo.id === senderId}}
+        <a class="dropdown-item deleteMessage" href="javascript:;" data-id="{{:id}}"><i class="fas fa-trash mr-2"></i>Delete</a>
+    {{/if}}
+    {{if loggedInfo.roles > 0 && senderRoles === 0 }}
+        <a class="dropdown-item text-danger ac-user" data-toggle="modal"
+               data-target="#actionModal"
+               data-user-id="{{:senderId}}" href="javascript:;">Mute / Banned</a>
+    {{/if}}
+
+</script>
+
+    <div class="modal fade premodal premodal-login" id="modallogin" tabindex="-1" role="dialog"
+        aria-labelledby="modallogintitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="tab-content">
+                    <div id="modal-tab-login" class="tab-pane active">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modallogintitle">Welcome back!</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="alert alert-danger mb-3" id="login-error" style="display: none;"></div>
+                            <form class="preform" id="login-form" method="post" data-bitwarden-watching="1">
+                                <div class="form-group">
+                                    <label class="prelabel" for="email">Email address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="name@email.com"
+                                        name="email" required="">
+                                </div>
+                                <div class="form-group">
+                                    <label class="prelabel" for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" placeholder="Password"
+                                        name="password" required="">
+                                </div>
+                                <div class="form-check custom-control custom-checkbox">
+                                    <div class="float-left">
+                                        <input type="checkbox" class="custom-control-input" name="remember" value="1"
+                                            id="remember" checked="">
+                                        <label class="custom-control-label" for="remember">Remember me</label>
+                                    </div>
+                                    <div class="float-right">
+                                        <a href="javascript:;" class="link-highlight text-forgot forgot-tab-link">Forgot
+                                            password?</a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div data-theme="dark" class="g-recaptcha mb-3 mt-3" id="login-recaptcha">
+                                    <div style="width: 304px; height: 78px;">
+                                        <div><iframe title="reCAPTCHA" width="304" height="78" role="presentation"
+                                                name="a-l68zx4f06k2p" frameborder="0" scrolling="no"
+                                                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
+                                                src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lfz6fAmAAAAAKZdTpHpGUfe5OUYvosjXcpasbCd&amp;co=aHR0cHM6Ly9hbml3YXRjaC50bzo0NDM.&amp;hl=en&amp;v=-QbJqHfGOUB8nuVRLvzFLVed&amp;theme=dark&amp;size=normal&amp;cb=dkvfz9937586"></iframe>
+                                        </div><textarea id="g-recaptcha-response-3" name="g-recaptcha-response"
+                                            class="g-recaptcha-response"
+                                            style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+                                    </div><iframe style="display: none;"></iframe>
+                                </div>
+                                <div class="form-group login-btn mb-0">
+                                    <button id="btn-login" class="btn btn-primary btn-block">Login</button>
+                                    <div class="loading-relative" id="login-loading" style="display: none;">
+                                        <div class="loading">
+                                            <div class="span1"></div>
+                                            <div class="span2"></div>
+                                            <div class="span3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer text-center">
+                            Don't have an account? <a class="link-highlight register-tab-link"
+                                title="Register">Register</a> or <a class="link-highlight verify-tab-link"
+                                title="Account Verification">Verify</a>
+                        </div>
+                    </div>
+                    <div id="modal-tab-register" class="tab-pane fade">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modallogintitle2">Create an Account</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="alert alert-danger mb-3" id="register-error" style="display: none;"></div>
+                            <div class="alert alert-success mb-3" id="register-success" style="display: none;">
+                                An email has been sent to your email address containing an activation link. Please check
+                                your email and click on the link to activate your account (It may get in the email spam
+                                box).
+                            </div>
+                            <form class="preform" method="post" id="register-form" data-bitwarden-watching="1">
+                                <div class="form-group">
+                                    <label class="prelabel" for="re-username">Your name</label>
+                                    <input type="text" class="form-control" id="re-username" placeholder="Name"
+                                        name="name" required="">
+                                </div>
+                                <div class="form-group">
+                                    <label class="prelabel" for="re-email">Email address</label>
+                                    <input type="email" class="form-control" id="re-email" placeholder="name@email.com"
+                                        name="email" required="">
+                                </div>
+                                <div class="form-group">
+                                    <label class="prelabel" for="re-password">Password</label>
+                                    <input type="password" class="form-control" id="re-password" placeholder="Password"
+                                        name="password" required="">
+                                </div>
+                                <div class="form-group">
+                                    <label class="prelabel" for="re-confirmpassword">Confirm Password</label>
+                                    <input type="password" class="form-control" id="re-confirmpassword"
+                                        placeholder="Confirm Password" required="">
+                                </div>
+                                <div data-theme="dark" class="g-recaptcha mb-3" id="register-recaptcha">
+                                    <div style="width: 304px; height: 78px;">
+                                        <div><iframe title="reCAPTCHA" width="304" height="78" role="presentation"
+                                                name="a-jw3d3sffiobh" frameborder="0" scrolling="no"
+                                                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
+                                                src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lfz6fAmAAAAAKZdTpHpGUfe5OUYvosjXcpasbCd&amp;co=aHR0cHM6Ly9hbml3YXRjaC50bzo0NDM.&amp;hl=en&amp;v=-QbJqHfGOUB8nuVRLvzFLVed&amp;theme=dark&amp;size=normal&amp;cb=dugvjn1u4x2x"></iframe>
+                                        </div><textarea id="g-recaptcha-response-2" name="g-recaptcha-response"
+                                            class="g-recaptcha-response"
+                                            style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group login-btn mb-0">
+                                    <button id="btn-register" class="btn btn-primary btn-block">Register</button>
+                                    <div class="loading-relative" id="register-loading" style="display: none;">
+                                        <div class="loading">
+                                            <div class="span1"></div>
+                                            <div class="span2"></div>
+                                            <div class="span3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer text-center">
+                            Have an account? <a class="link-highlight login-tab-link" title="Login">Login</a>
+                        </div>
+                    </div>
+                    <div id="modal-tab-forgot" class="tab-pane fade">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modallogintitle3">Reset Password</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="padding-bottom: 20px;">
+                            <form class="preform" method="post" id="forgot-form">
+                                <div class="alert alert-success mb-3" id="forgot-success" style="display:none"></div>
+                                <div class="alert alert-danger mb-3" id="forgot-error" style="display:none"></div>
+                                <div class="form-group">
+                                    <label class="prelabel" for="forgot-email">Your Email</label>
+                                    <input required="" type="text" class="form-control" id="forgot-email" name="email"
+                                        placeholder="name@email.com">
+                                </div>
+                                <div data-theme="dark" class="g-recaptcha mb-3" id="forgot-recaptcha">
+                                    <div style="width: 304px; height: 78px;">
+                                        <div><iframe title="reCAPTCHA" width="304" height="78" role="presentation"
+                                                name="a-q8j7u0b941lx" frameborder="0" scrolling="no"
+                                                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
+                                                src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lfz6fAmAAAAAKZdTpHpGUfe5OUYvosjXcpasbCd&amp;co=aHR0cHM6Ly9hbml3YXRjaC50bzo0NDM.&amp;hl=en&amp;v=-QbJqHfGOUB8nuVRLvzFLVed&amp;theme=dark&amp;size=normal&amp;cb=txlte37o5zuz"></iframe>
+                                        </div><textarea id="g-recaptcha-response" name="g-recaptcha-response"
+                                            class="g-recaptcha-response"
+                                            style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group login-btn mb-0">
+                                    <button class="btn btn-primary btn-block">Submit</button>
+                                    <div class="loading-relative" id="forgot-loading" style="display: none;">
+                                        <div class="loading">
+                                            <div class="span1"></div>
+                                            <div class="span2"></div>
+                                            <div class="span3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer text-center">
+                            <a class="link-highlight login-tab-link" title=""><i class="fas fa-angle-left mr-2"></i>Back
+                                to Sign-in</a>
+                        </div>
+                    </div>
+                    <div id="modal-tab-verify" class="tab-pane fade">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modallogintitle3">Send Verification Email</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="padding-bottom: 20px;">
+                            <form class="preform" method="post" id="verify-form">
+                                <div class="alert alert-success mb-3" id="verify-success" style="display:none"></div>
+                                <div class="alert alert-danger mb-3" id="verify-error" style="display:none"></div>
+                                <div class="form-group">
+                                    <label class="prelabel" for="verify-email">Your Email</label>
+                                    <input required="" type="text" class="form-control" id="verify-email" name="email"
+                                        placeholder="name@email.com">
+                                </div>
+                                <div data-theme="dark" class="g-recaptcha mb-3" id="verify-recaptcha">
+                                    <div style="width: 304px; height: 78px;">
+                                        <div><iframe title="reCAPTCHA" width="304" height="78" role="presentation"
+                                                name="a-db96xpyjzwit" frameborder="0" scrolling="no"
+                                                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
+                                                src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lfz6fAmAAAAAKZdTpHpGUfe5OUYvosjXcpasbCd&amp;co=aHR0cHM6Ly9hbml3YXRjaC50bzo0NDM.&amp;hl=en&amp;v=-QbJqHfGOUB8nuVRLvzFLVed&amp;theme=dark&amp;size=normal&amp;cb=15kzvi7r9br1"></iframe>
+                                        </div><textarea id="g-recaptcha-response-1" name="g-recaptcha-response"
+                                            class="g-recaptcha-response"
+                                            style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group login-btn mb-0">
+                                    <button class="btn btn-primary btn-block">Submit</button>
+                                    <div class="loading-relative" id="verify-loading" style="display: none;">
+                                        <div class="loading">
+                                            <div class="span1"></div>
+                                            <div class="span2"></div>
+                                            <div class="span3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer text-center">
+                            <a class="link-highlight login-tab-link" title=""><i class="fas fa-angle-left mr-2"></i>Back
+                                to Sign-in</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src='https://content.jwplatform.com/libraries/KB5zFt7A.js'></script>
+    <script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';</script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/custom.js"></script>
+
+    <script>
+
+        var name = getCookie("agent_name");
+        if (name == "") {
+            window.location = "/";
+        }
+
+        var player = jwplayer("player");
+        player.setup({
+            file:"/video/MerlinS1E1.mp4",
+            //file: "https://api.allorigins.win/get?url=https://rovideo.xyz/044/tt0449010.1080p.tr.m3u8",
+            //file: "https://api.allorigins.win/get?url=https://n3.5dk.org/storage/media/bbda482b406a3a895f0004b7e3973272-720.mp4/gomindex.m3u8",
+            image: "https://tr.web.img3.acsta.net/newsv7/21/06/01/00/43/4844878.jpg",
+            height: '100%',
+            autostart: false
+        });
+
+        var syntheticEvent = false;
+        var roomCode = 125;
+
+        const socket = io();
+        socket.emit('loginn', name);
+
+        const checkVideoEvent = (event) => {
+            // if event comes from javascript code, stop videoEventHandler listener from firing
+            var source = event.type;
+            console.log(source);
+
+            if (syntheticEvent) {
+
+                if (source != "seeked") {
+                    syntheticEvent = false
+                }
+
+            } else {
+                socket.emit(
+                    SOCKET_EVENTS.VIDEO_EVENT,
+                    event.type,
+                    player?.getCurrentTime()
+                )
+            }
+
+        }
+
+        const videoEventHandler = (event) => {
+            if (roomCode) {
+                socket.emit(
+                    SOCKET_EVENTS.VIDEO_EVENT,
+                    event.type,
+                    player?.getCurrentTime()
+                )
+            }
+        }
+
+        const VIDEO_EVENTS = {
+            PLAY: "play",
+            PAUSE: "pause",
+            SEEKED: "seeked"
+        };
+
+        const SOCKET_EVENTS = {
+            CREATE: "create",
+            JOIN: "join",
+            FULL: "full",
+            LOG: "log",
+            VIDEO_EVENT: "videoEvent"
+        }
+
+        Object.values(VIDEO_EVENTS).forEach((event) => player.on(event, checkVideoEvent))
+        //Object.values(VIDEO_EVENTS).forEach((event) => player.on(event, videoEventHandler))
+
+        socket.on(
+            SOCKET_EVENTS.VIDEO_EVENT,
+            (eventType, currentTime) => {
+                switch (eventType) {
+                    case VIDEO_EVENTS.PLAY:
+                        syntheticEvent = true
+                        player?.play()
+                        break
+                    case VIDEO_EVENTS.PAUSE:
+                        syntheticEvent = true
+                        player?.pause()
+                        break
+                    case VIDEO_EVENTS.SEEKED: {
+                        syntheticEvent = true
+                        player?.seek(currentTime)
+                        break
+                    }
+                }
+
+            }
+        )
+
+        const btn = document.getElementById('sendMessage');
+        const input = document.getElementById('message');
+        const messages = document.getElementById('messages');
+
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (input.value) {
+                const messages = document.getElementById('chat-content');
+                const item = document.createElement('div');
+                item.className = 'item item-alert';
+                item.innerHTML = `<div class="tc-alert">
+                                                <strong class="highlight-text mr-1">${name}</strong>
+                                                ${input.value}
+                                </div>`;
+                messages.appendChild(item);
+                const clientOffset = `${socket.id}`;
+                socket.emit('chat-message', input.value, name);
+                input.value = '';
+
+                scrollToLatestMessage()
+            }
+
+        });
+
+        socket.on("loginn", (data) => {
+            document.getElementById('totalViewers').innerHTML = Object.keys(data).length;
+        });
+
+        socket.on('chat-message', (msg, name) => {
+            const messages = document.getElementById('chat-content');
+            const item = document.createElement('div');
+            item.className = 'item item-alert';
+            item.innerHTML = `<div class="tc-alert">
+                                    <strong class="highlight-text mr-1">${name}</strong>
+                                    ${msg}
+                                </div>`;
+
+            //item.textContent = msg;
+            messages.appendChild(item);
+
+            scrollToLatestMessage()
+
+        });
+
+        function scrollToLatestMessage() {
+            var list = document.querySelector(".t_c-chatlist");
+            console.log(list.scrollHeight);
+            list.scrollTo(0, list.scrollHeight);
+        }
+
+        input.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+            // code for enter
+                
+                if (input.value) {
+                    const messages = document.getElementById('chat-content');
+                    const item = document.createElement('div');
+                    item.className = 'item item-alert';
+                    item.innerHTML = `<div class="tc-alert">
+                                                    <strong class="highlight-text mr-1">${name}</strong>
+                                                    ${input.value}
+                                    </div>`;
+                    messages.appendChild(item);
+                    const clientOffset = `${socket.id}`;
+                    socket.emit('chat-message', input.value, name);
+                    input.value = '';
+
+                    scrollToLatestMessage()
+                }
+            }
+        });
+
+        function joinRoom() {
+            const roomName = document.getElementById('roomName').value;
+            socket.emit('joinRoom', roomName);
+        }
+
+        function leaveRoom() {
+            const roomName = document.getElementById('roomName').value;
+            socket.emit('leaveRoom', roomName);
+        }
+
+        socket.on('userCount', (count) => {
+            document.getElementById('userCount').innerText = `Kullanıcı Sayısı: ${count}`;
+        });
+
+    </script>
+
+</body>
+
+</html>

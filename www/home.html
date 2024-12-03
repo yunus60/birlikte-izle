@@ -1,0 +1,183 @@
+<html lang="en">
+
+<head>
+    <title>Birlikte izleyelim mi?/title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!--Begin: Stylesheet-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/css/style.css">
+    <!--End: Stylesheet-->
+
+</head>
+
+<body class="livestream_body livestream_body-watch">
+    <div id="sidebar_menu_bg"></div>
+    <div id="sidebar_menu">
+        <button class="btn btn-radius btn-sm btn-secondary toggle-sidebar"><i class="fas fa-angle-left mr-2"></i>Close
+            menu</button>
+        <div class="sb-setting">
+            <div class="header-setting">
+                <div class="hs-toggles">
+                    <a href="/watch2gether" class="hst-item" data-toggle="tooltip" title=""
+                        data-original-title="Watch with friends">
+                        <div class="hst-icon"><i class="zicon zicon-20 zicon-live"></i></div>
+                        <div class="name"><span>Watch2gether</span></div>
+                    </a>
+                    <a href="/random" class="hst-item" data-toggle="tooltip" data-original-title="Watch random anime">
+                        <div class="hst-icon"><i class="fas fa-random"></i></div>
+                        <div class="name"><span>Random</span></div>
+                    </a>
+                    <div class="hst-item mr-0" data-toggle="tooltip" title=""
+                        data-original-title="Select language of anime name to display.">
+                        <div class="select-anime-name toggle-lang"><span class="en">EN</span><span class="jp">JP</span>
+                        </div>
+                        <div class="name"><span>Anime Name</span></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sb-donate">
+            <div class="hr-community"><a class="btn btn-sm" href="/community/board" title="AniWatch Connect"><i
+                        class="fas fa-comments mr-2"></i>Community</a></div>
+        </div>
+        <ul class="nav sidebar_menu-list">
+            <li class="nav-item active"><a class="nav-link" href="/home" title="Home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/subbed-anime" title="Subbed Anime">Subbed Anime</a></li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div id="wrapper">
+        <div id="header" class="header-home">
+            <div class="container">
+                <div id="mobile_menu"><i class="fa fa-bars"></i></div>
+                <a href="/" id="logo">
+                    <div class="uc-info"><strong>Birlikte izleyelim mi?</strong>
+                    </div>
+                </a>
+                <div id="search">
+                    <div class="search-content">
+                        <form action="/search" autocomplete="off">
+                            <a href="/filter" class="filter-icon">Filtrele</a>
+                            <input type="text" class="form-control search-input" name="keyword"
+                                placeholder="Dizi ya da Film ara..." required="">
+                            <button type="submit" class="search-icon"><i class="fas fa-search"></i></button>
+                        </form>
+                        <div class="nav search-result-pop" id="search-suggest" style="display: none;">
+                            <div class="loading-relative" id="search-loading" style="display: none;">
+                                <div class="loading">
+                                    <div class="span1"></div>
+                                    <div class="span2"></div>
+                                    <div class="span3"></div>
+                                </div>
+                            </div>
+                            <div class="result" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="header_right">
+                    <div class="header_right-user">
+                        <a data-toggle="modal" data-target="#modallogin"
+                            class="btn-user btn btn-sm btn-primary btn-login">Giriş Yap</a>
+                    </div>
+                </div>
+                <div id="mobile_search"><i class="fa fa-search"></i></div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <!--Begin: Main-->
+        <div id="main-wrapper" class="layout-page layout-page-live-watch">
+            <div class="livestream_page livestream_page-min">
+                <div class="container">
+                    <div class="prebreadcrumb">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/home">Anasayfa</a></li>
+                                <li class="breadcrumb-item"><a href="/watch2gether">Beraber izle</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Oda oluştur</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <section class="block_area block_area-live block_area-live-create">
+                        <div class="block_area-header">
+                            <h2 class="h2-heading highlight-text">Yeni bir oda oluştur</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="block_area-content">
+                            <div class="live_content" data-movie-id="18572">
+                                <div class="block-top">
+                                    <div class="live__-create live__-info">
+                                        <div class="live___-detail">
+                                            <div class="anis-cover"
+                                                style="background-image: url(https://img.flawlessfiles.com/_r/300x400/100/bf/3b/bf3ba12c4112c8a922280cca870510ed/bf3ba12c4112c8a922280cca870510ed.jpg)">
+                                            </div>
+                                            
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-mid">
+                                    <div class="live__-create choose-name">
+                                        <div class="lv-title mb-3"><i
+                                                class="fas fa-info-circle mr-2 highlight-text"></i>Adınızı Giriniz
+                                        </div>
+                                        <div class="cn_-form">
+                                            <form class="preform">
+                                                <input id="agent_name" type="text" class="form-control" name="agent_name"
+                                                    value="" placeholder="Adınızı yazın...">
+                                            </form>
+                                        </div>
+                                        <div class="small mt-2" style="color: #aaa;">Adını düzgün yazmayan Serdar gibi olsun
+                                        </div>
+                                    </div>
+                                    <div class="live__-create choose-type">
+                                        <a href="javascript:;" class="btn btn-block btn-lg btn-focus btn-create-room" id="btn-create-room">Odaya giriş yap
+                                                <div id="loading" class="spinner-border spinner-border-sm ml-2"
+                                                    role="status" style="display: none;"></div>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!--End: Main-->
+    </div>
+
+    <script src="/js/custom.js"></script>
+
+    <script>
+
+        var input = document.getElementById("agent_name");
+        var btn = document.getElementById("btn-create-room");
+
+        btn.addEventListener("click", function () {
+
+            if (input.value == "") {
+                alert("Adınızı girin");
+                return;
+            }
+
+            setCookie("agent_name", input.value, 365);
+            window.location = "/player";
+
+        });
+
+        
+
+    </script>
+
+</body>
+
+</html>
